@@ -1,6 +1,6 @@
 from random import choice, randint
-import pygame
 
+import pygame
 
 # Constants
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
@@ -160,4 +160,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
