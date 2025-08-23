@@ -1,6 +1,7 @@
 from random import choice, randint
 import pygame
 
+
 # Constants
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
 GRID_SIZE = 20
@@ -28,52 +29,64 @@ pygame.display.set_caption('Змейка')
 clock = pygame.time.Clock()
 
 
-# Base class
 class GameObject:
-    def __init__(self, body_color=(255, 255, 255)):  # дефолтное значение
+    """Base class for all game objects."""
+
+    def __init__(self, body_color=(255, 255, 255)):
+        """Initialize with position and color."""
         self.position = (0, 0)
         self.body_color = body_color
 
     def draw(self):
+        """Abstract method to draw object."""
         raise NotImplementedError
 
 
-# Apple class
 class Apple(GameObject):
+    """Apple object on the game board."""
+
     def __init__(self):
+        """Initialize apple with randomized position."""
         super().__init__(APPLE_COLOR)
         self.randomize_position()
 
     def randomize_position(self):
+        """Place apple at a random grid position."""
         self.position = (
             randint(0, GRID_WIDTH - 1) * GRID_SIZE,
             randint(0, GRID_HEIGHT - 1) * GRID_SIZE
         )
 
     def draw(self):
+        """Draw the apple on the board."""
         rect = pygame.Rect(self.position, (GRID_SIZE, GRID_SIZE))
         pygame.draw.rect(screen, self.body_color, rect)
         pygame.draw.rect(screen, BORDER_COLOR, rect, 1)
 
 
-# Snake class with growth
 class Snake(GameObject):
+    """Snake object controlled by the player."""
+
     def __init__(self):
+        """Initialize snake at screen center."""
         super().__init__(SNAKE_COLOR)
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
         self.direction = choice([UP, DOWN, LEFT, RIGHT])
         self.next_direction = None
         self.grow = False
 
-    def get_head_position(self):   # добавлен для тестов
+    def get_head_position(self):
+        """Return the position of the snake's head."""
         return self.positions[0]
 
     def update_direction(self):
+        """Update direction based on user input."""
         if self.next_direction:
             self.direction = self.next_direction
             self.next_direction = None
 
     def move(self):
+        """Move the snake one step forward."""
         head_x, head_y = self.positions[0]
         dx, dy = self.direction
         new_head = (
@@ -91,11 +104,13 @@ class Snake(GameObject):
                 self.grow = False
 
     def reset(self):
+        """Reset snake to initial state."""
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
         self.direction = choice([UP, DOWN, LEFT, RIGHT])
         self.grow = False
 
     def draw(self):
+        """Draw the snake on the board."""
         for pos in self.positions:
             rect = pygame.Rect(pos, (GRID_SIZE, GRID_SIZE))
             pygame.draw.rect(screen, self.body_color, rect)
@@ -103,6 +118,7 @@ class Snake(GameObject):
 
 
 def handle_keys(snake):
+    """Handle keyboard input for controlling the snake."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -119,6 +135,7 @@ def handle_keys(snake):
 
 
 def main():
+    """Main game loop."""
     pygame.init()
     snake = Snake()
     apple = Apple()
