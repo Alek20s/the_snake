@@ -13,6 +13,7 @@ UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
+DIRECTIONS = [UP, DOWN, LEFT, RIGHT]
 
 # Colors
 BOARD_BACKGROUND_COLOR = (0, 0, 0)
@@ -71,7 +72,7 @@ class Snake(GameObject):
         """Initialize snake at screen center."""
         super().__init__(SNAKE_COLOR)
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
-        self.direction = choice([UP, DOWN, LEFT, RIGHT])
+        self.direction = choice(DIRECTIONS) # choice([UP, DOWN, LEFT, RIGHT])
         self.next_direction = None
         self.grow = False
 
@@ -151,7 +152,7 @@ def main():
             snake.grow = True
             apple.randomize_position()
 
-        # Draw everything
+        # Draw everything.
         screen.fill(BOARD_BACKGROUND_COLOR)
         snake.draw()
         apple.draw()
