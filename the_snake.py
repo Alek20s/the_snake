@@ -58,8 +58,7 @@ class Apple(GameObject):
         while True:
             new_position = (
                 randint(0, GRID_WIDTH - 1) * GRID_SIZE,
-                randint(0, GRID_HEIGHT - 1) * GRID_SIZE
-                )
+                randint(0, GRID_HEIGHT - 1) * GRID_SIZE)
             if new_position not in occupied_positions:
                 self.position = new_position
                 break
@@ -138,11 +137,8 @@ def handle_keys(snake):
         elif event.type == pg.KEYDOWN:
             if event.key in key_to_direction:
                 new_dir = key_to_direction[event.key]
-                if (new_dir != snake.direction 
-                    and new_dir != opposites[snake.direction]
-                ):
+                if (new_dir != snake.direction and new_dir != opposites[snake.direction]):
                     snake.next_direction = new_dir
-
 
 
 def main():
