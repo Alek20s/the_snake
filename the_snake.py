@@ -41,7 +41,7 @@ class GameObject:
         self.body_color = body_color
 
     def draw(self):
-        """ Нарисовать обьект."""
+        """Нарисовать обьект."""
         raise NotImplementedError
 
 
@@ -59,11 +59,10 @@ class Apple(GameObject):
             new_position = (
                 randint(0, GRID_WIDTH - 1) * GRID_SIZE,
                 randint(0, GRID_HEIGHT - 1) * GRID_SIZE
-             )
+                )
             if new_position not in occupied_positions:
                 self.position = new_position
                 break
-
 
     def draw(self):
         """Draw the apple on the board."""
@@ -123,8 +122,7 @@ class Snake(GameObject):
 
 
 def handle_keys(snake):
-    """Ручное управление змейкой через клавиатуру с 
-       использованием словаря."""
+    """Ручное управление змейкой через клавиатуру с  использованием словаря."""
     opposites = {UP: DOWN, DOWN: UP, LEFT: RIGHT, RIGHT: LEFT}
     key_to_direction = {
         pg.K_UP: UP,
