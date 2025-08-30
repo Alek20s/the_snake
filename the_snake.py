@@ -146,7 +146,7 @@ def main():
     pg.init()
     snake = Snake()
     apple = Apple()
-    apple.randomize_position(snake.positions)# первая генерация
+    apple.randomize_position(snake.positions)#  первая генерация
 
     while True:
         clock.tick(SPEED)
