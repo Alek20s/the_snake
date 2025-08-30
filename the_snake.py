@@ -138,7 +138,7 @@ def handle_keys(snake):
             if event.key in key_to_direction:
                 new_dir = key_to_direction[event.key]
                 if (new_dir != snake.direction
-                    and new_dir != opposites[snake.direction]):
+                        and new_dir != opposites[snake.direction]):
                     snake.next_direction = new_dir
 
 
