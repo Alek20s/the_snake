@@ -170,7 +170,7 @@ def main():
             snake.grow = True
             apple.randomize_position(snake.positions)
 
-        # Показать всё на дисплее
+        # Показать всё на дисплее.
         screen.fill(BOARD_BACKGROUND_COLOR)
         snake.draw()
         apple.draw()
