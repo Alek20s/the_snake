@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from random import choice, randint
+from random import  randint
 
 import pygame as pg
 
