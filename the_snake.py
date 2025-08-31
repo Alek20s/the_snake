@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from random import choice, randint
 
 import pygame as pg
@@ -27,7 +28,6 @@ WHITE_COLOR = (255, 255, 255)
 # Скорость змейки
 SPEED = 3
 
-# -------------------------------------------------------------
 TRANSITIONS = {
     (pg.K_UP, LEFT): UP,
     (pg.K_UP, RIGHT): UP,
