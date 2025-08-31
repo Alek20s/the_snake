@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from random import  randint
-
 import pygame as pg
+from random import randint
 
 # Константы
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
@@ -41,7 +40,7 @@ TRANSITIONS = {
 
 # Включение экрана
 screen = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pg.display.set_caption('Змейка')
+pg.display.set_caption("Змейка")
 clock = pg.time.Clock()
 
 
@@ -64,7 +63,6 @@ class Apple(GameObject):
     def __init__(self):
         """Обозначение случайной позиции."""
         super().__init__(APPLE_COLOR)
-        # self.position = INITIAL_POSITION
 
     def randomize_position(self, occupied_positions):
         """Случайное положение яблока вне змейки."""
@@ -149,7 +147,7 @@ def main():
     pg.init()
     snake = Snake()
     apple = Apple()
-    apple.randomize_position(snake.positions)  # первая генерация
+    apple.randomize_position(snake.positions)
 
     while True:
         clock.tick(SPEED)
@@ -173,5 +171,5 @@ def main():
         pg.display.update()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
