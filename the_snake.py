@@ -132,7 +132,7 @@ class Snake(GameObject):
 
 
 def handle_keys(snake):
-    """Ручное управление змейкой через клавиатуру с использованием TRANSITIONS."""
+    """Ручное управление змейкой клавиатурой с использованием TRANSITIONS."""
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
