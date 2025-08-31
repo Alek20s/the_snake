@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import pygame as pg
 from random import randint
+
+import pygame as pg
 
 # Константы
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
@@ -40,7 +41,7 @@ TRANSITIONS = {
 
 # Включение экрана
 screen = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pg.display.set_caption("Змейка")
+pg.display.set_caption('Змейка')
 clock = pg.time.Clock()
 
 
@@ -107,7 +108,7 @@ class Snake(GameObject):
         dx, dy = self.direction
         new_head = (
             (head_x + dx * GRID_SIZE) % SCREEN_WIDTH,
-            (head_y + dy * GRID_SIZE) % SCREEN_HEIGHT,
+            (head_y + dy * GRID_SIZE) % SCREEN_HEIGHT
         )
 
         self.positions.insert(0, new_head)
@@ -171,5 +172,5 @@ def main():
         pg.display.update()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
